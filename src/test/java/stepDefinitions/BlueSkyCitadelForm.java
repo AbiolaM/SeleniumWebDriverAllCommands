@@ -59,7 +59,6 @@ public class BlueSkyCitadelForm {
     @Then("^I close my window$")
     public void iCloseMyWindow() {
         driver.close();
-        driver.quit();
     }
 
     @And("^I enter email address$")
@@ -103,8 +102,8 @@ public class BlueSkyCitadelForm {
 
     @And("^I get the Window Handle$")
     public void iGetTheWindowHandle() {
-        String pageHnadle = driver.getWindowHandle();
-        System.out.println(pageHnadle);
+        String windowHandle = driver.getWindowHandle();
+        System.out.println(windowHandle);
 
     }
 
@@ -129,7 +128,6 @@ public class BlueSkyCitadelForm {
 
     @And("^I clear the Password$")
     public void iClearThePassword() {
-
         driver.findElement(By.name("nf-field-144")).clear();
 
     }
@@ -159,4 +157,14 @@ public class BlueSkyCitadelForm {
        boolean isMessageDisplayed =  driver.findElement(By.cssSelector("#nf-form-errors-9 > nf-errors > nf-section > div")).isDisplayed();
         System.out.println(isMessageDisplayed);
     }
+
+
+    @And("^I get the form title$")
+    public void iGetTheFormTitle() {
+        String pageFormTitle = driver.findElement(By.className("entry-title")).getText();
+        System.out.println(pageFormTitle);
+    }
+
 }
+
+
